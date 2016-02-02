@@ -33,19 +33,19 @@ def getgpxfile(name):
 	#erstellen des Header
 	aus.write('<?xml version="1.0" ?>\n')
 	aus.write('<gpx \n version="1.0" \n creator="Kevin Luedemann">\n')
-	aus.write(' <trk>\n')
-	aus.write("  <name>{}</name>\n".format(name))
-	aus.write('  <trkseg>\n')
+	aus.write('    <trk>\n')
+	aus.write("        <name>{}</name>\n".format(name))
+	aus.write('        <trkseg>\n')
 	
 	#bearbeiten der Punkte in Trackpints fuer das gpx
 	for i in range(len(daten[:,0])):
-		aus.write("   <trkpt lat=\"{}\" lon=\"{}\"> <ele>0</ele> </trkpt>\n".format(daten[i,2],daten[i,1]))
+		aus.write("            <trkpt lat=\"{}\" lon=\"{}\"> <ele>0</ele> </trkpt>\n".format(daten[i,2],daten[i,1]))
 
 	
 	
 	#ende der Bereiche
-	aus.write('  </trkseg>\n')
-	aus.write(' </trk>\n')
+	aus.write('        </trkseg>\n')
+	aus.write('    </trk>\n')
 	aus.write('</gpx>')
 
 

@@ -20,9 +20,15 @@ daten[:,3] /= 100.0
 daten[:,4] /= 100.0
 daten[:,0] -= daten[0,0]
 
+laengengrad = daten[:,2]*(4e4/360.0)
+breitengrad = laengengrad*np.sin(np.pi/2.0-(np.pi/180.0)*daten[:,1])
 
+fig = figure()
 plt.plot(daten[:,1],daten[:,2], 'r-')
+fig.show()
 
+fig = figure()
+plt.plot(breitengrad,laengengrad)
 #plt.plot(diff)
 plt.show()
 

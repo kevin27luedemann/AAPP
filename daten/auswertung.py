@@ -11,11 +11,18 @@ from pylab import *
 import sys
 import time as ti
 
-daten2 = np.array(np.genfromtxt("02011548.TXT", comments='#', delimiter='\t'))
-daten1 = np.array(np.genfromtxt("02011347.TXT", comments='#', delimiter='\t'))
+daten = np.array(np.genfromtxt("02011548.TXT", comments='#', delimiter='\t'))
+#daten1 = np.array(np.genfromtxt("02011347.TXT", comments='#', delimiter='\t'))
 
-diff = daten2[:,3]/100.0-daten2[:,4]/100.0
+daten[:,1] /= 1e6
+daten[:,2] /= 1e5
+daten[:,3] /= 100.0
+daten[:,4] /= 100.0
+daten[:,0] -= daten[0,0]
 
-plt.plot(diff)
+
+plt.plot(daten[:,1],daten[:,2], 'r-')
+
+#plt.plot(diff)
 plt.show()
 

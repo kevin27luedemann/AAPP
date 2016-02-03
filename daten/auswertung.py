@@ -11,6 +11,8 @@ from pylab import *
 import sys
 import time as ti
 
+name = sys.argv[1]
+print name
 
 def latitu(x):
 	return (x-x[0])*(4e4/360.0)
@@ -50,21 +52,21 @@ def getgpxfile(name):
 
 
 
-getgpxfile("02011548")
+getgpxfile(name)
 
 
 
 
 #-----------------------------------------------------------------------------------------------
 #einbinden der Daten und berechnen der Streckenabscnitte
-daten = getdata("02011548") #np.array(np.genfromtxt("02011548.TXT", comments='#', delimiter='\t'))
+daten = getdata(name) #np.array(np.genfromtxt("02011548.TXT", comments='#', delimiter='\t'))
 
 
 langengrad	= latitu(daten[:,2])
 longitude	= longit(daten[:,2],daten[:,1])
 
 
-"""
+
 #-----------------------------------------------------------------------------------------------
 #plotten der Geographischen Daten
 fig = figure()
@@ -84,4 +86,3 @@ plt.ylabel("Nord-Ost Strecke [km]")
 plt.axis("equal")
 plt.grid("on")
 plt.show()
-"""
